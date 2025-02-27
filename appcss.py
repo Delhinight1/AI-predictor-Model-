@@ -1,15 +1,16 @@
-import streamlit as st  
-from joblib import load  
-from numpy import array  
+
+import streamlit as st  # Import Streamlit
+from joblib import load  # Import joblib
+from numpy import array  # Import numpy
 # Load the trained model
-model = load("./resources/placement-model.pkl")
+model = load("model.pkl")
 
-
+# Customizing the page layout
 st.set_page_config(page_title="Placement Package Predictor", page_icon="🎓", layout="centered")
 
-
+# Styling
 st.markdown(
-    "
+    """
     <style>
         .main {
             background-color: #f4f4f4;
@@ -31,11 +32,11 @@ st.markdown(
             padding: 10px 20px;
         }
     </style>
-    ",
+    """,
     unsafe_allow_html=True
 )
 
-# App 
+# App Header
 st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🎓 Placement Package Predictor</h1>", unsafe_allow_html=True)
 
 st.markdown(
@@ -43,7 +44,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
+# Input field
 gpa = st.number_input("Enter CGPA:", min_value=0.0, max_value=10.0, step=0.1, format="%.1f")
 
 # Predict button
